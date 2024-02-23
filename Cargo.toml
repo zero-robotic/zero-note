@@ -1,0 +1,10 @@
+[package]
+name = "zero-note"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+druid = { version = "0.8.3", features = ["im"]}
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = { version = "0.1.37" }
