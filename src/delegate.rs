@@ -1,5 +1,3 @@
-use std::sync::Arc;
-
 use druid::{
     AppDelegate, commands, Command, DelegateCtx, Env, WindowHandle, WindowId, Target, Handled
 };
@@ -30,14 +28,7 @@ impl AppDelegate<AppState> for Delegate {
     -> Handled {
         if let Some(file_info) = cmd.get(commands::OPEN_FILE) {
             println!("{:?}", file_info.path());
-            match std::fs::read_to_string(file_info.path()) {
-                Ok(s) => {
-                    data.multi = Arc::new(s);
-                }
-                Err(e) => {
-                    println!("Error opening file: {e}");
-                }
-            }
+            data.open_file(file_info.path());
             return Handled::Yes;
         }
         Handled::No

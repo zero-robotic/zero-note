@@ -29,12 +29,7 @@ fn main() {
         .window_size((800.0, 600.0));
 
     // create the initial app state
-    let initial_state = AppState {
-        config: Config::new(),
-        tab_config: Default::default(),
-        advanced: DynamicTabData::new(2),
-        multi: "".to_string().into(),
-    };
+    let initial_state = AppState::new();
 
     // start the application
     AppLauncher::with_window(main_window)
@@ -52,7 +47,7 @@ fn build_root_widget() -> impl Widget<AppState> {
                 .with_placeholder("Start from here")
                 .with_font(FontDescriptor::new(FontFamily::MONOSPACE))
                 .with_text_size(16.0)
-                .lens(AppState::multi)
+                .lens(AppState::content)
                 .expand_width()
                 .expand_height(),
             1.0,
