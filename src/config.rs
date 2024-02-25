@@ -4,9 +4,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Data, Debug, Clone, Deserialize, Serialize)]
 pub struct Config {
-    pub font_family: String,
-    pub font_size: usize,
-    pub line_height: f64
+    font_family: String,
+    font_size: usize,
+    line_height: f64
 }
 
 impl Config {
